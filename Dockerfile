@@ -8,4 +8,5 @@ RUN apk update && \
 
 COPY ntpd.conf /etc/ntpd.conf
 
-ENTRYPOINT [ "cat", "/etc/ntpd.conf" ]
+ENTRYPOINT [ "ntpd", "-d" ]
+CMD [ "-s", "-f", "/etc/ntpd.conf" ]
